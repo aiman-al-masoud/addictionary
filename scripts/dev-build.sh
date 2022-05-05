@@ -1,3 +1,5 @@
+rm ./dist/index.html
+cp ./app/src/index.html ./dist/
 webpack --mode=development
 echo "<script>" >> ./dist/index.html  
 cat ./dist/index.js >> ./dist/index.html  

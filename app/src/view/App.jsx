@@ -1,22 +1,28 @@
 import React, {Component} from "react";
 import reactDOM from "react-dom";
-import Server from "../model/Server";
+import Translate from "./Translate.jsx";
 
 
 export default class App extends Component{
 
     constructor(props){
         super(props)
+
+        this.state = {
+
+        }
     }
 
     render(){
+        
+        return (<div>
 
-        Server.get().postWord("capra", "cavallo").then(()=>{
-            let d = Server.get().getDictionary().then(p=>console.log(p))
-            }
-        )
+            <Translate/>
 
-        return <h1>Hello world!</h1>
+            
+
+
+        </div>)
     }
     
 }
