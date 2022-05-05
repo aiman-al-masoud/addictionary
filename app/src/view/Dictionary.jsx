@@ -24,6 +24,8 @@ export default class Dictionary extends Component {
 
     render(){
         return (<div>
+
+            <h1>Enrich the Dictionary</h1>
             <input  ref={this.wordInput} type="text"  />
             <input ref={this.meaningInput} type="text" />
             <button onClick={this.onAddEntry}>Add Entry</button>

@@ -30,16 +30,27 @@ export default class Translate extends Component {
         this.setState({idiosyncraticOutput: translation})
     }
 
+    onSpeak = ()=>{
+        let speech = new SpeechSynthesisUtterance();
+        speech.lang ="en"
+        speech.text = this.state.idiosyncraticOutput
+        window.speechSynthesis.speak(speech)
+    }
+
 
     render() {
 
         return (<div>
 
+            <h1>Translator</h1>
+
             <h2>Plain English:</h2>
-            <textarea ref={this.textarea}  onInput={()=>{this.onEnterPlainEnglishInput(this.textarea.current.value)}}  value={this.state.plainEnglishInput}></textarea>
+            <textarea ref={this.textarea}  onInput={()=>{this.onEnterPlainEnglishInput(this.textarea.current.value)}}  value={this.state.plainEnglishInput} cols="100" rows="10"></textarea>
             
             <h2>Makessensese:</h2>
-            <pre>{this.state.idiosyncraticOutput}</pre>
+            <pre style={{ "white-space": "pre-wrap"}}>{this.state.idiosyncraticOutput}</pre>
+
+            <button onClick={this.onSpeak}>Speak</button>
 
         </div>)
     }
