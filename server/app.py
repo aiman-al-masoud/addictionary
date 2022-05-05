@@ -29,6 +29,10 @@ def on_index():
 def post_word():
     print(request.json)
     d[request.json["entry"][0]] = request.json["entry"][1]
+    
+    with open(os.path.join(app.root_path,  "res", "dictionary.json"), "w+") as f:
+        f.write(json.dumps(d))
+
     return "success", 200
 
 @app.route("/get-dictionary", methods=["GET"])

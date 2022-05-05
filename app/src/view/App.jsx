@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import reactDOM from "react-dom";
+import Dictionary from "./Dictionary.jsx";
 import Translate from "./Translate.jsx";
 
 
@@ -14,13 +15,18 @@ export default class App extends Component{
     }
 
     render(){
+
+        
         
         return (<div>
 
             <Translate/>
 
+            <br />
+            <br />
+            <br />
+            <Dictionary/>
             
-
 
         </div>)
     }
