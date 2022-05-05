@@ -14,7 +14,8 @@ app.config["DEBUG"] = True
 CORS(app)
 
 
-d = {"colam" : "column", "makessense" : "\n"}
+with open(os.path.join(app.root_path,  "res", "dictionary.json")) as f:
+    d = json.loads(f.read())
 
 @app.route("/")
 def on_index():
