@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request, send_file
-import re
 import os
-import pandas as pd
-from time import time
-import subprocess
-import random
+# import pandas as pd
+# from time import time
+# import subprocess
+# import random
+# import re
 
 import json
 from flask_cors import CORS
@@ -27,6 +27,7 @@ def on_index():
 @app.route("/post-word", methods=["GET", "POST"])
 def post_word():
     print(request.json)
+    d[request.json["entry"][0]] = request.json["entry"][1]
     return "success", 200
 
 @app.route("/get-dictionary", methods=["GET"])
