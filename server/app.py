@@ -13,8 +13,8 @@ app = Flask(__name__)
 app.config["DEBUG"] = True
 CORS(app)
 
-print(app.root_path)
 
+d = {"colam" : "column", "makessense" : "\n"}
 
 @app.route("/")
 def on_index():
@@ -22,3 +22,19 @@ def on_index():
     with open(path) as f:
         source = f.read()
     return source
+
+
+@app.route("/post-word", methods=["GET", "POST"])
+def post_word():
+    print(request.json)
+    return "success", 200
+
+@app.route("/get-dictionary", methods=["GET"])
+def get_dictionary():
+    return json.dumps(d)
+
+
+
+
+
+
