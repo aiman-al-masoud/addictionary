@@ -1,3 +1,7 @@
+import S from "./Settings"
+
+
+
 export default class Server{
 
     static instance = null
@@ -19,9 +23,12 @@ export default class Server{
     }
 
     async getDictionary(){
-        let res = await fetch("/get-dictionary")
+        let res = await fetch("/get-dictionary", S.get(S.DICTIONARY_NAME))
         return res.json()
     }
 
+    async getAvailableDicts(){
+        return (await fetch("/get-dictionaries-list")).json()
+    }
 
 }
