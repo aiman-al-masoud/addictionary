@@ -20,6 +20,7 @@
     "react-dom": "^18.1.0"
   },
   "scripts": {
-    "dev-build": "./scripts/dev-build.sh"
+    "dev-build": "./scripts/dev-build.sh",
+    "build": "./scripts/build.sh"
   }
 }
