@@ -31,7 +31,7 @@ def post_word():
 
     dict_of_dicts[request.json["dict_name"]] [request.json["entry"][0]] = request.json["entry"][1]
 
-    with open(os.path.join(DICTS_PATH, request.json["dict_name"] ), "w+") as f:
+    with open(os.path.join(DICTS_PATH, f"{request.json['dict_name']}.json" ), "w+") as f:
         f.write(json.dumps(dict_of_dicts[request.json["dict_name"]]))
 
     return "success", 200
