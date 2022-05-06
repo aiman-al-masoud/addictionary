@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import reactDOM from "react-dom";
 import Server from "../model/Server";
 import Translator from "../model/Translator";
+import LoudSpeakerPicture from "../../res/loud-speaker.png"
+import Styles from "./Styles";
+
 
 export default class Translate extends Component {
 
@@ -40,6 +43,8 @@ export default class Translate extends Component {
 
     render() {
 
+        
+
         return (<div>
 
             <h1>Translator</h1>
@@ -50,10 +55,15 @@ export default class Translate extends Component {
             <br />
             <textarea ref={this.textarea}  onInput={()=>{this.onEnterPlainEnglishInput(this.textarea.current.value)}}  value={this.state.plainEnglishInput} cols="100" rows="10"></textarea>
             
-            <h2>Better English:</h2>
-            <pre style={{ "white-space": "pre-wrap"}}>{this.state.idiosyncraticOutput}</pre>
+            <br />
+            <br />
+            <h2 style={Styles.visibleInline}>Better English:</h2> 
+            <img  src={LoudSpeakerPicture} onClick={this.onSpeak} title="Speak" alt="Speak"  className="loud_speaker_icon"/>
+         
+            <br />
+            <br />
+            <textarea  cols="100" rows="10" value={this.state.idiosyncraticOutput}></textarea>
 
-            <button onClick={this.onSpeak}>Speak</button>
 
         </div>)
     }
