@@ -21,12 +21,12 @@ DICTS_PATH = os.path.join(app.root_path,  "res")
 
 
 def list_dictionaries():
-    return os.listdir(DICTS_PATH)
+    return [ d.strip(".json") for d in os.listdir(DICTS_PATH) ]
 
 
-dict_of_dicts = { d : json.loads(open(os.path.join(DICTS_PATH, d), "r").read())  for d in list_dictionaries()}
+dict_of_dicts = { d : json.loads(open(os.path.join(DICTS_PATH, f"{d}.json"), "r").read())  for d in list_dictionaries()}
 
-print(dict_of_dicts)
+# print(dict_of_dicts)
 
 
 @app.route("/")
@@ -39,8 +39,6 @@ def on_index():
 
 @app.route("/post-word", methods=["GET", "POST"])
 def post_word():
-    # print(request.json)
-    # d[request.json["entry"][0]] = request.json["entry"][1]
 
     dict_of_dicts[request.json["dict_name"]] [request.json["entry"][0]] = request.json["entry"][1]
 
@@ -49,7 +47,7 @@ def post_word():
 
     return "success", 200
 
-@app.route("/get-dictionary", methods=["GET"])
+@app.route("/get-dictionary", methods=["GET", "POST"])
 def get_dictionary():
     
     try:
@@ -57,7 +55,6 @@ def get_dictionary():
     except:
         dict_name = "dictionary.json"
 
-    print("HERE", dict_of_dicts)
 
     return json.dumps(dict_of_dicts[dict_name])
 
@@ -66,5 +63,23 @@ def get_dictionary():
 def get_dictionaries_list():
     return json.dumps(list_dictionaries())
 
+@app.route("/create-dictionary", methods=["GET", "POST"])
+def create_dictionary():
 
+    try:
+        dict_name = request.json["dict_name"]
+        d = request.json["dict"]
+
+        path = os.path.join(DICTS_PATH, f"{dict_name}.json")
+        if os.path.isfile(path):
+            return "name already taken", 400
+            
+        with open(path, "w+") as f:
+            f.write(json.dumps(d))
+        
+        return "success"
+
+    except:
+        return "failure", 400
+    
 

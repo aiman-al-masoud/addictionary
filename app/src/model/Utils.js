@@ -26,15 +26,20 @@ const readText = () => {
         span.innerHTML = "<input id='fileInput' name='fileInput' type='file' hidden />".trim();
         window.fileInput = span.getElementsByTagName("input")[0]
 
+        let filename = undefined
+
         let fr = new FileReader()
 
         fr.onload = () => {
-            resolve(fr.result)
+            // console.log(fr)
+            resolve( [fr.result, filename]  )
         }
 
         fileInput.addEventListener("change", () => {
             fr.readAsText(fileInput.files[0])
+            filename = fileInput.files[0].name
         })
+
 
         fileInput.click()
 

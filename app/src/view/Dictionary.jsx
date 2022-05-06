@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import reactDOM from "react-dom";
 import Server from "../model/Server";
-import { saveToComp } from "../model/Utils";
+import { saveToComp, readText } from "../model/Utils";
 import S from "../model/Settings";
 
 export default class Dictionary extends Component {
@@ -9,7 +9,8 @@ export default class Dictionary extends Component {
     constructor(props) {
         super(props)
         this.wordInput = React.createRef()
-        this.meaningInput =  React.createRef(),
+        this.meaningInput =  React.createRef()
+        this.newDictNameInput =  React.createRef()
 
         this.state = {
             availableDicts : [],
@@ -47,6 +48,23 @@ export default class Dictionary extends Component {
         location.reload()
     }
 
+
+
+    uploadDict = async ()=>{
+        await Server.get().createDictionary( this.newDictNameInput.current.value ,this.toBeUploadedDict??{})
+        location.reload()
+    }
+
+    selectFile = async ()=>{
+        let res = await readText()
+ 
+        let text = res[0] 
+        let filename = res[1] 
+        this.toBeUploadedDict = JSON.parse(   text  )  
+        this.newDictNameInput.current.value = filename.replace(".json", "")
+
+    }
+
     render(){
         return (<div>
 
@@ -66,6 +84,19 @@ export default class Dictionary extends Component {
             <br />
             <br />
             <button onClick={this.onAddEntry}>Add Entry</button>
+
+            <h2>Create Dictionary</h2>
+
+            <p>(Optional) upload an existing json file:</p>
+            <button onClick={this.selectFile}>Select File</button>
+
+            <p>Choose a name:</p>
+            <input type="text"  ref={this.newDictNameInput} />
+            
+            <br />
+            <br />
+            <button onClick={this.uploadDict}>Upload</button>
+
 
             <h2>Downloads</h2>
             <button onClick={this.onDownloadDictionary}>Download Dictionary</button>
