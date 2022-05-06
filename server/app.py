@@ -42,7 +42,7 @@ def get_dictionary():
     try:
         dict_name = request.json["dict_name"] 
     except:
-        dict_name = "dictionary.json"
+        dict_name = dict_of_dicts.keys()[0]
 
 
     return json.dumps(dict_of_dicts[dict_name])
