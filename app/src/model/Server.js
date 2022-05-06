@@ -14,6 +14,23 @@ export default class Server {
         return Server.instance = Server.instance ?? new Server()
     }
 
+    constructor() {
+        this.checkKillerSwitchInterval = setInterval(() => {
+            this.checkKillerSwitch()
+        }, 2000);
+    }
+
+    async checkKillerSwitch() {
+        let res = await fetch("is-killed")
+        res = await res.json()
+        console.log(res)
+
+        if (res["killed"]) {
+            window.clearInterval(this.checkKillerSwitchInterval)
+            location.reload()
+        }
+    }
+
     async postWord(word, meaning) {
         return fetch("/post-word", {
             method: "POST",
@@ -24,9 +41,9 @@ export default class Server {
 
     async getDictionary() {
         let res = await fetch("/get-dictionary", {
-            method: "POST", 
+            method: "POST",
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify( { dict_name: S.get().get(S.DICTIONARY_NAME) }  )
+            body: JSON.stringify({ dict_name: S.get().get(S.DICTIONARY_NAME) })
         })
         return res.json()
     }
@@ -35,11 +52,11 @@ export default class Server {
         return (await fetch("/get-dictionaries-list")).json()
     }
 
-    async createDictionary(dictName, dict={}){
+    async createDictionary(dictName, dict = {}) {
         return fetch("/create-dictionary", {
-            method: "POST", 
+            method: "POST",
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify( { dict_name: dictName, dict : dict}  )
+            body: JSON.stringify({ dict_name: dictName, dict: dict })
         })
     }
 

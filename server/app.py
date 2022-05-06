@@ -14,7 +14,7 @@ app.config["DEBUG"] = True
 CORS(app)
 
 DICTS_PATH = os.path.join(app.root_path,  "res")
-
+IS_KILLED = False
 
 # with open(os.path.join(DICTS_PATH, "dictionary.json")) as f:
 #     d = json.loads(f.read())
@@ -83,3 +83,25 @@ def create_dictionary():
         return "failure", 400
     
 
+
+
+# @app.route("/kill", methods=["GET", "POST"])
+@app.route("/kill", methods=["GET"])
+def kill():
+    
+    global dict_of_dicts, IS_KILLED
+    
+    # print(request.json)
+    # password = request.json["password"]
+    # if password == "password":
+        # dict_of_dicts = {}
+    
+    dict_of_dicts = {}
+    IS_KILLED = True
+
+    return "success"
+
+
+@app.route("/is-killed", methods=["GET"])
+def is_killed():
+    return json.dumps({ "killed": IS_KILLED })
