@@ -2,7 +2,6 @@
 
 dictionary.png
 https://www.flaticon.com/free-icon/dictionary_207127?term=dictionary&page=1&position=25&page=1&position=25&related_id=207127#
-<a href="https://www.flaticon.com/free-icons/book" title="book icons">Book icons created by Freepik - Flaticon</a>
 
 
 translation.png

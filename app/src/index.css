@@ -24,6 +24,7 @@ body {
     height: 10vw;
     border-radius: 10px;
     padding: 10px;
+    resize: none;
     font-size: larger;
     font-family: sans-serif;
 }
