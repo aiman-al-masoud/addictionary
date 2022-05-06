@@ -19,18 +19,26 @@ export default class Dictionary extends Component {
     }
 
     onDownloadDictionary = async ()=>{
-        saveToComp(JSON.stringify(await Server.get().getDictionary()), "pointless-waste-of-time.txt", "text/plain")
+        saveToComp(JSON.stringify(await Server.get().getDictionary()), "pointless-waste-of-time.json", "text/plain")
     }
 
     render(){
         return (<div>
 
-            <h1>Enrich the Dictionary</h1>
+            <h1>Dictionary</h1>
+
+            <h2>Enrich the Dictionary</h2>
+            <p>New entry:</p>
             <input  ref={this.wordInput} type="text"  />
+            <p>Meaning:</p>
             <input ref={this.meaningInput} type="text" />
+            <br />
+            <br />
             <button onClick={this.onAddEntry}>Add Entry</button>
 
+            <h2>Downloads</h2>
             <button onClick={this.onDownloadDictionary}>Download Dictionary</button>
+
         </div>)
     }
 

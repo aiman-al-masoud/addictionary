@@ -46,9 +46,11 @@ export default class Translate extends Component {
 
             <h2>Plain English:</h2>
             <em>Try typing in a sentence, like: "Ok, I found a solution to the problem: reduce the number of columns/features."</em>
+            <br />
+            <br />
             <textarea ref={this.textarea}  onInput={()=>{this.onEnterPlainEnglishInput(this.textarea.current.value)}}  value={this.state.plainEnglishInput} cols="100" rows="10"></textarea>
             
-            <h2>Makessensese:</h2>
+            <h2>Better English:</h2>
             <pre style={{ "white-space": "pre-wrap"}}>{this.state.idiosyncraticOutput}</pre>
 
             <button onClick={this.onSpeak}>Speak</button>
