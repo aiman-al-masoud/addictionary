@@ -18,7 +18,7 @@ export default class Translator{
 
         })
 
-        return "First In First\n\n "+text
+        return text
     }
 
 }
