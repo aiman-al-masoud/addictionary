@@ -43,10 +43,10 @@ def get_dictionary():
         dict_name = request.json["dict_name"] 
         
         if dict_name not in dict_of_dicts.keys():
-            dict_name = dict_of_dicts.keys()[0]
+            dict_name = list(dict_of_dicts.keys())[0]
 
     except:
-        dict_name = dict_of_dicts.keys()[0]    
+        dict_name = list(dict_of_dicts.keys())[0]    
 
     return json.dumps(dict_of_dicts[dict_name])
 
