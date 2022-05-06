@@ -1,4 +1,4 @@
-export { saveToComp, readText,  setTitle}
+export { saveToComp, readText, setTitle, setFavicon }
 
 /**
  * 
@@ -42,6 +42,13 @@ const readText = () => {
 }
 
 
-function setTitle(string)  {
-    document.title  = string
+function setTitle(string) {
+    document.title = string
+}
+
+function setFavicon(faviconLinkOrData) {
+    let link = document.createElement('link')
+    link.rel = 'shortcut icon';
+    link.href = faviconLinkOrData;
+    document.head.appendChild(link);
 }

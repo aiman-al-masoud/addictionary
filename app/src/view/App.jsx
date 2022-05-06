@@ -3,7 +3,7 @@ import reactDOM from "react-dom";
 import Dictionary from "./Dictionary.jsx";
 import Translate from "./Translate.jsx";
 import Styles from "./Styles"
-import { setTitle } from "../model/Utils.js";
+import { setFavicon, setTitle } from "../model/Utils.js";
 import DictionaryPicture from "../../res/dictionary.png"
 import TranslationPicture from "../../res/translation.png"
 
@@ -31,6 +31,10 @@ export default class App extends Component {
     setMode = (newMode)=>{
         this.setState({mode :newMode})
         setTitle(newMode)
+        this.faviconDict = {}
+        this.faviconDict[AppModes.TRANSLATE] = TranslationPicture
+        this.faviconDict[AppModes.DICTIONARY] = DictionaryPicture
+        setFavicon(this.faviconDict[newMode])
     }
 
     render() {

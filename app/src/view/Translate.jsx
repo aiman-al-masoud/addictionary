@@ -53,7 +53,7 @@ export default class Translate extends Component {
             <em>Try typing in a sentence, like: "Ok, I found a solution to the problem: reduce the number of columns/features."</em>
             <br />
             <br />
-            <textarea ref={this.textarea}  onInput={()=>{this.onEnterPlainEnglishInput(this.textarea.current.value)}}  value={this.state.plainEnglishInput} cols="100" rows="10"></textarea>
+            <textarea ref={this.textarea}  onInput={()=>{this.onEnterPlainEnglishInput(this.textarea.current.value)}}  value={this.state.plainEnglishInput} className="text_area"></textarea>
             
             <br />
             <br />
@@ -62,7 +62,7 @@ export default class Translate extends Component {
          
             <br />
             <br />
-            <textarea  cols="100" rows="10" value={this.state.idiosyncraticOutput}></textarea>
+            <textarea   value={this.state.idiosyncraticOutput} className="text_area"></textarea>
 
 
         </div>)

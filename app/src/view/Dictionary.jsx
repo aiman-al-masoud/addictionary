@@ -29,9 +29,9 @@ export default class Dictionary extends Component {
 
             <h2>Enrich the Dictionary</h2>
             <p>New entry:</p>
-            <input  ref={this.wordInput} type="text"  />
+            <input  ref={this.wordInput} type="text" className="text_field"  />
             <p>Meaning:</p>
-            <input ref={this.meaningInput} type="text" />
+            <input ref={this.meaningInput} type="text" className="text_field" />
             <br />
             <br />
             <button onClick={this.onAddEntry}>Add Entry</button>

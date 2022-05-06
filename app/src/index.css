@@ -1,22 +1,92 @@
-body{
-    background: lightslategray ;
+body {
+    background: lightslategray;
 }
 
-.dictionary_icon, .translate_icon, .loud_speaker_icon{
+.dictionary_icon,
+.translate_icon,
+.loud_speaker_icon {
     animation-name: wobble_wobble_duck_animation;
     animation-duration: 4s;
     animation-iteration-count: infinite;
     margin-left: 1vw;
 }
 
-.dictionary_icon:hover, .translate_icon:hover, .loud_speaker_icon:hover{
+.dictionary_icon:hover,
+.translate_icon:hover,
+.loud_speaker_icon:hover {
     transform: scale(1.3);
     animation-name: none;
 }
 
+
+.text_area {
+    width: 80vw;
+    height: 10vw;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: larger;
+    font-family: sans-serif;
+}
+
+.text_field {
+    width: 60vw;
+    height: 1em;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: larger;
+    font-family: sans-serif;
+}
+
 @keyframes wobble_wobble_duck_animation {
-    0%, 100% {top: 90px; left: 400px;}
-    25% {top: 160px; left: 400px; transform: rotate(10deg);}
-    50% {top: 160px; left: 500px; transform: rotate(-10deg);}
-    75% {top: 90px; left: 500px; transform: rotate(10deg);}
+
+    0%,
+    100% {
+        top: 90px;
+        left: 400px;
+    }
+
+    25% {
+        top: 160px;
+        left: 400px;
+        transform: rotate(10deg);
+    }
+
+    50% {
+        top: 160px;
+        left: 500px;
+        transform: rotate(-10deg);
+    }
+
+    75% {
+        top: 90px;
+        left: 500px;
+        transform: rotate(10deg);
+    }
+}
+
+
+
+@media (max-width: 480px) {
+
+    .text_area,
+    .text_field {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .text_area {
+        height: 15vh;
+    }
+
+
+    .dictionary_icon,
+    .translate_icon,
+    .loud_speaker_icon {
+        margin-left: 4vw;
+        margin-right: 4vw;
+        transform: scale(1.2);
+    }
+
+
 }
