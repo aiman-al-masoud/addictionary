@@ -5,6 +5,9 @@ import Translate from "./Translate.jsx";
 import Styles from "./Styles"
 import { setTitle } from "../model/Utils.js";
 import DictionaryPicture from "../../res/dictionary.png"
+import TranslationPicture from "../../res/translation.png"
+
+
 
 class AppModes {
     static TRANSLATE = "Translate"
@@ -36,7 +39,9 @@ export default class App extends Component {
         return (<div >
 
 
-            <button onClick={()=>{this.setMode(AppModes.TRANSLATE)}}>Translate</button>
+            <img onClick={()=>{this.setMode(AppModes.TRANSLATE)}} src={TranslationPicture} className="" title="Translator"  alt="Translator"/>
+
+            {/* <button onClick={()=>{this.setMode(AppModes.TRANSLATE)}}>Translate</button> */}
             <img onClick={()=>{this.setMode(AppModes.DICTIONARY)}} src={DictionaryPicture} className="dictionary_icon" title="Click to open the Dictionary"  alt="Click to open the Dictionary"/>
 
             <div style={this.state.mode == AppModes.TRANSLATE ? Styles.visible : Styles.invisible}>

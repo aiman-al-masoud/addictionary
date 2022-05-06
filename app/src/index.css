@@ -7,14 +7,18 @@ body{
     animation-name: animation_dictionary_icon;
     animation-duration: 4s;
     animation-iteration-count: infinite;
+    margin-left: 1vw;
 }
 
 
+.dictionary_icon:hover{
+    transform: scale(1.3);
+    animation-name: none;
+}
+
 @keyframes animation_dictionary_icon {
-    
     0%, 100% {top: 90px; left: 400px;}
     25% {top: 160px; left: 400px; transform: rotate(10deg);}
-    50% {top: 160px; left: 500px; transform: rotate(-10deg); transform: scale(1.3);}
-
+    50% {top: 160px; left: 500px; transform: rotate(-10deg);}
     75% {top: 90px; left: 500px; transform: rotate(10deg);}
 }
