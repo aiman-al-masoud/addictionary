@@ -13,8 +13,10 @@ app = Flask(__name__)
 app.config["DEBUG"] = True
 CORS(app)
 
+DICTS_PATH = os.path.join(app.root_path,  "res")
 
-with open(os.path.join(app.root_path,  "res", "dictionary.json")) as f:
+
+with open(os.path.join(DICTS_PATH, "dictionary.json")) as f:
     d = json.loads(f.read())
 
 @app.route("/")
@@ -40,7 +42,9 @@ def get_dictionary():
     return json.dumps(d)
 
 
-
+@app.route("/get-dictionaries-list", methods=["GET"])
+def get_dictionaries_list():
+    return json.dumps(os.listdir(DICTS_PATH))
 
 
 
