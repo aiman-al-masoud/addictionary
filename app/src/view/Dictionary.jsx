@@ -91,7 +91,7 @@ export default class Dictionary extends Component {
             <button onClick={this.selectFile}>Select File</button>
 
             <p>Choose a name:</p>
-            <input type="text"  ref={this.newDictNameInput} />
+            <input type="text"  ref={this.newDictNameInput} className="text_field" />
             
             <br />
             <br />

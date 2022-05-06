@@ -10,6 +10,7 @@ export default class Translator{
      */
     translate(text){
 
+
         Object.entries(this.dictionary).forEach((entry)=>{
             let idionym = entry[0].toLowerCase()
             let meaning  = entry[1].toLowerCase()

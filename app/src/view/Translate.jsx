@@ -27,6 +27,7 @@ export default class Translate extends Component {
     }
 
     onEnterPlainEnglishInput = (string)=>{
+       
         this.setState({plainEnglishInput: string})
         console.log(this.state.plainEnglishInput)
         let translation = this.state.translator.translate(this.state.plainEnglishInput)
