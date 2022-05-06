@@ -4,7 +4,7 @@ import Dictionary from "./Dictionary.jsx";
 import Translate from "./Translate.jsx";
 import Styles from "./Styles"
 import { setTitle } from "../model/Utils.js";
-
+import DictionaryPicture from "../../res/dictionary.png"
 
 class AppModes {
     static TRANSLATE = "Translate"
@@ -34,6 +34,8 @@ export default class App extends Component {
 
 
         return (<div >
+
+            <img src={DictionaryPicture} className="dictionary_icon" />
 
             <button onClick={()=>{this.setMode(AppModes.TRANSLATE)}}>Translate</button>
             <button onClick={()=>{this.setMode(AppModes.DICTIONARY)}}>Dictionary</button>
