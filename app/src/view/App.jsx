@@ -17,8 +17,12 @@ export default class App extends Component {
         super(props)
 
         this.state = {
-            mode: AppModes.TRANSLATE
+            mode : undefined
         }
+    }
+
+    componentDidMount(){
+        this.setMode(AppModes.TRANSLATE)
     }
 
     setMode = (newMode)=>{
