@@ -37,7 +37,7 @@ export default class App extends Component {
 
 
             <button onClick={()=>{this.setMode(AppModes.TRANSLATE)}}>Translate</button>
-            <img onClick={()=>{this.setMode(AppModes.DICTIONARY)}} src={DictionaryPicture} className="dictionary_icon" />
+            <img onClick={()=>{this.setMode(AppModes.DICTIONARY)}} src={DictionaryPicture} className="dictionary_icon" title="Click to open the Dictionary"  alt="Click to open the Dictionary"/>
 
             <div style={this.state.mode == AppModes.TRANSLATE ? Styles.visible : Styles.invisible}>
                 <Translate />
