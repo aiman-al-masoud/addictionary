@@ -35,10 +35,9 @@ export default class App extends Component {
 
         return (<div >
 
-            <img src={DictionaryPicture} className="dictionary_icon" />
 
             <button onClick={()=>{this.setMode(AppModes.TRANSLATE)}}>Translate</button>
-            <button onClick={()=>{this.setMode(AppModes.DICTIONARY)}}>Dictionary</button>
+            <img onClick={()=>{this.setMode(AppModes.DICTIONARY)}} src={DictionaryPicture} className="dictionary_icon" />
 
             <div style={this.state.mode == AppModes.TRANSLATE ? Styles.visible : Styles.invisible}>
                 <Translate />

@@ -3,7 +3,7 @@ body{
 }
 
 .dictionary_icon{
-    float: right;
+    /* float: right; */
     animation-name: animation_dictionary_icon;
     animation-duration: 4s;
     animation-iteration-count: infinite;
