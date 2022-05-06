@@ -15,7 +15,7 @@ export default class Settings {
 
 
     get(key){
-        return JSON.parse(localStorage.getItem(Settings.SETTINGS))  [key]  
+        return JSON.parse(  localStorage.getItem(Settings.SETTINGS) ?? "{}"   )  [key]  
     }
 
     set(key, value){
