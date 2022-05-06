@@ -45,6 +45,7 @@ export default class Translate extends Component {
             <h1>Translator</h1>
 
             <h2>Plain English:</h2>
+            <em>Try typing in a sentence, like: "Ok, I found a solution to the problem: reduce the number of columns/features."</em>
             <textarea ref={this.textarea}  onInput={()=>{this.onEnterPlainEnglishInput(this.textarea.current.value)}}  value={this.state.plainEnglishInput} cols="100" rows="10"></textarea>
             
             <h2>Makessensese:</h2>

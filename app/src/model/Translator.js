@@ -11,18 +11,14 @@ export default class Translator{
     translate(text){
 
         Object.entries(this.dictionary).forEach((entry)=>{
-            let idionym = entry[0]
-            let meaning  = entry[1]
+            let idionym = entry[0].toLowerCase()
+            let meaning  = entry[1].toLowerCase()
 
-            // ["s", "ing"].forEach((s)=>{
-            //     meaning = meaning.endsWith(s) ? meaning.replace(s, "") : meaning
-            // })
-
-            text = text.replaceAll(meaning, idionym)
+            text = text.toLowerCase().replaceAll(meaning, idionym)
 
         })
 
-        return text
+        return "First In First\n\n "+text
     }
 
 }
