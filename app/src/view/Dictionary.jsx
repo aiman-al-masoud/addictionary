@@ -44,7 +44,7 @@ export default class Dictionary extends Component {
         choice = choice.options[choice.selectedIndex].text
         S.get().set(S.DICTIONARY_NAME, choice)
         this.setState({selectedDict: choice})
-
+        location.reload()
     }
 
     render(){

@@ -18,7 +18,7 @@ export default class Server{
         return fetch("/post-word", {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify( {entry: [word, meaning]} )
+            body: JSON.stringify( {entry: [word, meaning], dict_name : S.get().get(S.DICTIONARY_NAME)  } )
         })   
     }
 
