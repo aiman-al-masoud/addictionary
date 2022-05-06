@@ -1,11 +1,5 @@
 from flask import Flask, render_template, request, send_file
 import os
-# import pandas as pd
-# from time import time
-# import subprocess
-# import random
-# import re
-
 import json
 from flask_cors import CORS
 
@@ -16,17 +10,12 @@ CORS(app)
 DICTS_PATH = os.path.join(app.root_path,  "res")
 IS_KILLED = False
 
-# with open(os.path.join(DICTS_PATH, "dictionary.json")) as f:
-#     d = json.loads(f.read())
-
 
 def list_dictionaries():
     return [ d.strip(".json") for d in os.listdir(DICTS_PATH) ]
 
 
 dict_of_dicts = { d : json.loads(open(os.path.join(DICTS_PATH, f"{d}.json"), "r").read())  for d in list_dictionaries()}
-
-# print(dict_of_dicts)
 
 
 @app.route("/")
@@ -77,24 +66,18 @@ def create_dictionary():
         with open(path, "w+") as f:
             f.write(json.dumps(d))
         
+        dict_of_dicts[dict_name] = d
+        
         return "success"
 
     except:
         return "failure", 400
-    
 
 
-
-# @app.route("/kill", methods=["GET", "POST"])
 @app.route("/kill", methods=["GET"])
 def kill():
     
     global dict_of_dicts, IS_KILLED
-    
-    # print(request.json)
-    # password = request.json["password"]
-    # if password == "password":
-        # dict_of_dicts = {}
     
     dict_of_dicts = {}
     IS_KILLED = True

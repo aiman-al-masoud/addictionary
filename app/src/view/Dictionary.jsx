@@ -26,7 +26,7 @@ export default class Dictionary extends Component {
     }
 
     onDownloadDictionary = async ()=>{
-        saveToComp(JSON.stringify(await Server.get().getDictionary()), "pointless-waste-of-time.json", "text/plain")
+        saveToComp(JSON.stringify(await Server.get().getDictionary()), `${S.get().get(S.DICTIONARY_NAME)}.json`, "text/plain")
     }
 
     componentDidMount(){
